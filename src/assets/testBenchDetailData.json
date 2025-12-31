@@ -1,0 +1,302 @@
+{
+  "TB-001": {
+    "id": "TB-001",
+    "name": "Test Bench B1",
+    "lab": "Lab A - Power Systems",
+    "status": "active",
+    "description": "High-power testing bench for grid simulation and load balancing experiments",
+    "stats": {
+      "activeDevices": 8,
+      "idleDevices": 4,
+      "totalDataFlow": "2.4 GB/s",
+      "energyConsumption": "847 kWh/day",
+      "wastedEnergy": "156 kWh/day",
+      "potentialSavings": "$2,340/month"
+    },
+    "devices": [
+      {
+        "id": "01",
+        "name": "Power Analyzer A1",
+        "type": "analyzer",
+        "status": "active",
+        "position": { "x": -90, "y": -75 },
+        "consumers": 3,
+        "dataFlow": 450,
+        "energyUsage": 125,
+        "temperature": 42,
+        "uptime": "99.8%",
+        "lastActive": "2 min ago"
+      },
+      {
+        "id": "02",
+        "name": "Load Simulator B2",
+        "type": "simulator",
+        "status": "active",
+        "position": { "x": -60, "y": 105 },
+        "consumers": 5,
+        "dataFlow": 680,
+        "energyUsage": 215,
+        "temperature": 56,
+        "uptime": "98.2%",
+        "lastActive": "1 min ago"
+      },
+      {
+        "id": "04",
+        "name": "Grid Monitor C1",
+        "type": "monitor",
+        "status": "active",
+        "position": { "x": 100, "y": -60 },
+        "consumers": 2,
+        "dataFlow": 320,
+        "energyUsage": 88,
+        "temperature": 38,
+        "uptime": "99.9%",
+        "lastActive": "30 sec ago"
+      },
+      {
+        "id": "05",
+        "name": "Voltage Regulator D3",
+        "type": "regulator",
+        "status": "critical",
+        "position": { "x": 75, "y": 100 },
+        "consumers": 0,
+        "dataFlow": 0,
+        "energyUsage": 45,
+        "temperature": 72,
+        "uptime": "45.2%",
+        "lastActive": "2 hours ago",
+        "alert": "No consumers detected - consuming idle energy"
+      },
+      {
+        "id": "06",
+        "name": "Harmonic Filter E2",
+        "type": "filter",
+        "status": "critical",
+        "position": { "x": -130, "y": 15 },
+        "consumers": 0,
+        "dataFlow": 0,
+        "energyUsage": 52,
+        "temperature": 68,
+        "uptime": "38.7%",
+        "lastActive": "3 hours ago",
+        "alert": "Idle state with continuous power draw"
+      },
+      {
+        "id": "03",
+        "name": "Sensor Array F1",
+        "type": "sensor",
+        "status": "warning",
+        "position": { "x": 145, "y": 45 },
+        "consumers": 1,
+        "dataFlow": 120,
+        "energyUsage": 35,
+        "temperature": 44,
+        "uptime": "92.1%",
+        "lastActive": "15 min ago"
+      },
+      {
+        "id": "07",
+        "name": "Data Logger G2",
+        "type": "logger",
+        "status": "active",
+        "position": { "x": -30, "y": -120 },
+        "consumers": 4,
+        "dataFlow": 540,
+        "energyUsage": 95,
+        "temperature": 40,
+        "uptime": "99.5%",
+        "lastActive": "5 min ago"
+      },
+      {
+        "id": "08",
+        "name": "Power Conditioner H1",
+        "type": "conditioner",
+        "status": "active",
+        "position": { "x": 45, "y": -135 },
+        "consumers": 3,
+        "dataFlow": 410,
+        "energyUsage": 110,
+        "temperature": 48,
+        "uptime": "97.8%",
+        "lastActive": "3 min ago"
+      },
+      {
+        "id": "09",
+        "name": "Backup Unit I3",
+        "type": "backup",
+        "status": "dead",
+        "position": { "x": -135, "y": 60 },
+        "consumers": 0,
+        "dataFlow": 0,
+        "energyUsage": 12,
+        "temperature": 28,
+        "uptime": "0%",
+        "lastActive": "Never",
+        "alert": "Device offline - replace or decommission"
+      },
+      {
+        "id": "10",
+        "name": "Measurement Pod J2",
+        "type": "measurement",
+        "status": "dead",
+        "position": { "x": -105, "y": 100 },
+        "consumers": 0,
+        "dataFlow": 0,
+        "energyUsage": 8,
+        "temperature": 25,
+        "uptime": "0%",
+        "lastActive": "Never",
+        "alert": "Unused device consuming standby power"
+      },
+      {
+        "id": "11",
+        "name": "Control Unit K1",
+        "type": "control",
+        "status": "active",
+        "position": { "x": 135, "y": 75 },
+        "consumers": 2,
+        "dataFlow": 280,
+        "energyUsage": 72,
+        "temperature": 36,
+        "uptime": "99.1%",
+        "lastActive": "8 min ago"
+      },
+      {
+        "id": "12",
+        "name": "Emergency Switch L3",
+        "type": "safety",
+        "status": "warning",
+        "position": { "x": 160, "y": -45 },
+        "consumers": 1,
+        "dataFlow": 80,
+        "energyUsage": 22,
+        "temperature": 32,
+        "uptime": "100%",
+        "lastActive": "20 min ago"
+      }
+    ],
+    "aiInsights": {
+      "summary": {
+        "overallStatus": "critical",
+        "criticalIssues": 2,
+        "warnings": 2,
+        "optimizationScore": 68,
+        "message": "Test Bench B1 has 2 critical idle devices consuming 97 kWh/day unnecessarily. Immediate action recommended."
+      },
+      "recommendations": [
+        {
+          "id": "rec-1",
+          "priority": "high",
+          "category": "energy-waste",
+          "title": "Power Down Idle Devices",
+          "description": "Devices D3 (Voltage Regulator) and E2 (Harmonic Filter) have been idle for 2-3 hours with no consumers, yet consuming 97 kWh/day combined.",
+          "impact": "Save $1,455/month",
+          "actions": [
+            "Schedule automatic power-down after 30 min idle",
+            "Investigate why these devices have no active consumers",
+            "Consider redistributing workload to active devices"
+          ],
+          "estimatedSavings": 97,
+          "affectedDevices": ["05", "06"]
+        },
+        {
+          "id": "rec-2",
+          "priority": "high",
+          "category": "maintenance",
+          "title": "Decommission Dead Devices",
+          "description": "Backup Unit I3 and Measurement Pod J2 are offline but still drawing 20 kWh/day standby power. These devices have never been active.",
+          "impact": "Save $300/month",
+          "actions": [
+            "Physically disconnect dead devices from power",
+            "Remove from network topology",
+            "Repurpose or recycle hardware"
+          ],
+          "estimatedSavings": 20,
+          "affectedDevices": ["09", "10"]
+        },
+        {
+          "id": "rec-3",
+          "priority": "medium",
+          "category": "optimization",
+          "title": "Load Balancing Opportunity",
+          "description": "Load Simulator B2 is running at 85% capacity with high temperature (56°C), while other devices are underutilized.",
+          "impact": "Extend hardware lifespan by 18 months",
+          "actions": [
+            "Redistribute 2 consumers from B2 to underutilized analyzers",
+            "Monitor temperature trends over next 7 days",
+            "Schedule preventive maintenance check"
+          ],
+          "estimatedSavings": 0,
+          "affectedDevices": ["02", "01", "04"]
+        },
+        {
+          "id": "rec-4",
+          "priority": "medium",
+          "category": "prediction",
+          "title": "Sensor Array F1 Degradation Detected",
+          "description": "AI model predicts Sensor Array F1 uptime will drop below 85% within 14 days based on recent performance trends.",
+          "impact": "Prevent unplanned downtime",
+          "actions": [
+            "Schedule proactive maintenance in next 7 days",
+            "Order replacement parts (Est. arrival: 5 days)",
+            "Prepare backup sensor array for failover"
+          ],
+          "estimatedSavings": 0,
+          "affectedDevices": ["03"]
+        },
+        {
+          "id": "rec-5",
+          "priority": "low",
+          "category": "efficiency",
+          "title": "Optimize Data Flow Routes",
+          "description": "Current data routing through Data Logger G2 creates unnecessary network hops. Direct routing could reduce latency by 12%.",
+          "impact": "Improve response time by 120ms",
+          "actions": [
+            "Reconfigure network topology to use direct paths",
+            "Update routing tables for devices 01, 07, 08",
+            "Test new configuration in sandbox environment first"
+          ],
+          "estimatedSavings": 5,
+          "affectedDevices": ["07", "01", "08"]
+        }
+      ],
+      "quickActions": [
+        {
+          "id": "action-1",
+          "label": "Power Down All Idle Devices",
+          "type": "primary",
+          "icon": "power",
+          "estimatedImpact": "$1,755/month savings"
+        },
+        {
+          "id": "action-2",
+          "label": "Schedule Maintenance Review",
+          "type": "secondary",
+          "icon": "schedule",
+          "estimatedImpact": "Prevent future failures"
+        },
+        {
+          "id": "action-3",
+          "label": "Export Energy Report",
+          "type": "tertiary",
+          "icon": "download",
+          "estimatedImpact": "PDF/CSV download"
+        },
+        {
+          "id": "action-4",
+          "label": "Optimize Load Distribution",
+          "type": "secondary",
+          "icon": "tune",
+          "estimatedImpact": "Balance workload"
+        }
+      ]
+    },
+    "energyTrend": {
+      "current": 847,
+      "baseline": 690,
+      "optimal": 730,
+      "waste": 156,
+      "wastePercentage": 18.4
+    }
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "testBenches": [
+    {
+      "id": "TB001",
+      "name": "Power Distribution Test Bench A",
+      "location": "Lab 1 - Building A",
+      "totalDevices": 145,
+      "deviceStatus": {
+        "good": 120,
+        "critical": 18,
+        "dead": 7
+      },
+      "aiInsightsAvailable": true,
+      "aiInsightCount": 12,
+      "lastUpdated": "2025-11-16T10:30:00Z",
+      "energyConsumption": 2850.5,
+      "efficiency": 87.3,
+      "uptime": 98.5
+    },
+    {
+      "id": "TB002",
+      "name": "Motor Control Test Bench B",
+      "location": "Lab 2 - Building A",
+      "totalDevices": 98,
+      "deviceStatus": {
+        "good": 85,
+        "critical": 10,
+        "dead": 3
+      },
+      "aiInsightsAvailable": true,
+      "aiInsightCount": 8,
+      "lastUpdated": "2025-11-16T10:28:00Z",
+      "energyConsumption": 1920.3,
+      "efficiency": 91.2,
+      "uptime": 99.1
+    },
+    {
+      "id": "TB003",
+      "name": "Circuit Breaker Test Bench C",
+      "location": "Lab 3 - Building B",
+      "totalDevices": 210,
+      "deviceStatus": {
+        "good": 175,
+        "critical": 25,
+        "dead": 10
+      },
+      "aiInsightsAvailable": true,
+      "aiInsightCount": 15,
+      "lastUpdated": "2025-11-16T10:25:00Z",
+      "energyConsumption": 3420.8,
+      "efficiency": 83.7,
+      "uptime": 96.8
+    },
+    {
+      "id": "TB004",
+      "name": "Relay Testing Station D",
+      "location": "Lab 1 - Building B",
+      "totalDevices": 67,
+      "deviceStatus": {
+        "good": 60,
+        "critical": 5,
+        "dead": 2
+      },
+      "aiInsightsAvailable": false,
+      "aiInsightCount": 0,
+      "lastUpdated": "2025-11-16T10:32:00Z",
+      "energyConsumption": 890.2,
+      "efficiency": 94.5,
+      "uptime": 99.8
+    },
+    {
+      "id": "TB005",
+      "name": "Automation Test Bench E",
+      "location": "Lab 4 - Building C",
+      "totalDevices": 180,
+      "deviceStatus": {
+        "good": 155,
+        "critical": 20,
+        "dead": 5
+      },
+      "aiInsightsAvailable": true,
+      "aiInsightCount": 18,
+      "lastUpdated": "2025-11-16T10:20:00Z",
+      "energyConsumption": 2650.9,
+      "efficiency": 88.9,
+      "uptime": 97.3
+    },
+    {
+      "id": "TB006",
+      "name": "Safety Systems Test Bench F",
+      "location": "Lab 5 - Building C",
+      "totalDevices": 125,
+      "deviceStatus": {
+        "good": 110,
+        "critical": 12,
+        "dead": 3
+      },
+      "aiInsightsAvailable": true,
+      "aiInsightCount": 9,
+      "lastUpdated": "2025-11-16T10:35:00Z",
+      "energyConsumption": 1780.4,
+      "efficiency": 89.6,
+      "uptime": 98.2
+    }
+  ],
+  "summary": {
+    "totalTestBenches": 6,
+    "totalDevices": 825,
+    "overallHealth": {
+      "good": 705,
+      "critical": 90,
+      "dead": 30
+    },
+    "totalAiInsights": 62,
+    "averageEfficiency": 89.2,
+    "averageUptime": 98.3
+  }
+}

@@ -1,0 +1,480 @@
+{
+  "version": "1.0",
+  "description": "AI Rules Engine - Device monitoring and optimization rules",
+  "rules": [
+    {
+      "id": "idle-no-consumers",
+      "name": "Idle Device with No Consumers",
+      "category": "energy_waste",
+      "severity": "critical",
+      "priority": 1,
+      "description": "Device is connected and emitting data, but no consumers are using it",
+      "conditions": {
+        "isConnected": true,
+        "consumers": 0,
+        "dataFlow": {
+          "operator": ">",
+          "value": 0
+        },
+        "energyUsage": {
+          "operator": ">",
+          "value": 5
+        },
+        "status": ["active", "idle", "critical"]
+      },
+      "recommendation": {
+        "action": "Turn off this device to save energy",
+        "reason": "Device is emitting data but has zero consumers - pure energy waste",
+        "impact": "High energy savings"
+      },
+      "estimatedSavings": {
+        "type": "energy",
+        "calculation": "energyUsage * 30 * 0.12",
+        "unit": "$/month"
+      }
+    },
+    {
+      "id": "connected-no-data",
+      "name": "Connected but Not Emitting Data",
+      "category": "energy_waste",
+      "severity": "warning",
+      "priority": 2,
+      "description": "Device is connected to network but not transmitting any data",
+      "conditions": {
+        "isConnected": true,
+        "dataFlow": {
+          "operator": "<=",
+          "value": 0
+        },
+        "energyUsage": {
+          "operator": ">",
+          "value": 3
+        },
+        "status": ["active", "idle"]
+      },
+      "recommendation": {
+        "action": "Consider turning off or investigating this idle device",
+        "reason": "Device is connected but completely idle - no data transmission",
+        "impact": "Medium energy savings"
+      },
+      "estimatedSavings": {
+        "type": "energy",
+        "calculation": "energyUsage * 30 * 0.12",
+        "unit": "$/month"
+      }
+    },
+    {
+      "id": "not-connected",
+      "name": "Device Powered but Not Connected",
+      "category": "energy_waste",
+      "severity": "warning",
+      "priority": 3,
+      "description": "Device is consuming power but not connected to the network",
+      "conditions": {
+        "isConnected": false,
+        "status": ["active", "idle"],
+        "energyUsage": {
+          "operator": ">",
+          "value": 1
+        }
+      },
+      "recommendation": {
+        "action": "Turn off disconnected device or check network connection",
+        "reason": "Device is consuming power without being connected to the network",
+        "impact": "Medium energy savings"
+      },
+      "estimatedSavings": {
+        "type": "energy",
+        "calculation": "energyUsage * 30 * 0.12",
+        "unit": "$/month"
+      }
+    },
+    {
+      "id": "high-restart-frequency",
+      "name": "Frequent Device Restarts",
+      "category": "lifespan",
+      "severity": "warning",
+      "priority": 4,
+      "description": "Device is restarting too frequently, reducing its lifespan",
+      "conditions": {
+        "restartFrequency": {
+          "operator": ">",
+          "value": 5,
+          "period": "week"
+        }
+      },
+      "recommendation": {
+        "action": "Investigate and fix the root cause of frequent restarts",
+        "reason": "Frequent restarts reduce device lifespan and indicate potential issues",
+        "impact": "Prevents hardware failure and extends device life"
+      },
+      "estimatedSavings": {
+        "type": "maintenance",
+        "calculation": "replacement_cost * 0.3",
+        "unit": "$/year"
+      }
+    },
+    {
+      "id": "high-cpu-load",
+      "name": "High CPU Usage",
+      "category": "performance",
+      "severity": "warning",
+      "priority": 5,
+      "description": "Device is operating under high load conditions",
+      "conditions": {
+        "cpuUsage": {
+          "operator": ">",
+          "value": 85
+        },
+        "status": ["active"]
+      },
+      "recommendation": {
+        "action": "Redistribute load or upgrade device capacity",
+        "reason": "High CPU usage may lead to performance degradation and potential failures",
+        "impact": "Improves reliability and performance"
+      },
+      "estimatedSavings": {
+        "type": "performance",
+        "calculation": null,
+        "unit": "operational_efficiency"
+      }
+    },
+    {
+      "id": "critical-cpu-overload",
+      "name": "Critical CPU Overload",
+      "category": "performance",
+      "severity": "critical",
+      "priority": 1,
+      "description": "Device CPU is critically overloaded",
+      "conditions": {
+        "cpuUsage": {
+          "operator": ">",
+          "value": 95
+        },
+        "status": ["active"]
+      },
+      "recommendation": {
+        "action": "Immediately redistribute load or add capacity",
+        "reason": "Critical CPU overload can cause system failure and downtime",
+        "impact": "Prevents system failures and outages"
+      },
+      "estimatedSavings": {
+        "type": "downtime_prevention",
+        "calculation": null,
+        "unit": "risk_mitigation"
+      }
+    },
+    {
+      "id": "voltage-spikes",
+      "name": "Voltage Anomalies Detected",
+      "category": "electrical",
+      "severity": "critical",
+      "priority": 2,
+      "description": "Device experiencing voltage spikes or irregularities",
+      "conditions": {
+        "voltageSpikes": {
+          "operator": ">",
+          "value": 3,
+          "period": "day"
+        }
+      },
+      "recommendation": {
+        "action": "Check power supply and electrical connections immediately",
+        "reason": "Voltage spikes can damage equipment and create safety hazards",
+        "impact": "Prevents equipment damage and safety issues"
+      },
+      "estimatedSavings": {
+        "type": "equipment_protection",
+        "calculation": "replacement_cost",
+        "unit": "potential_loss_prevention"
+      }
+    },
+    {
+      "id": "high-data-low-consumers",
+      "name": "High Data Flow with Low Consumer Count",
+      "category": "optimization",
+      "severity": "info",
+      "priority": 6,
+      "description": "Device is pushing high data volume but has few consumers",
+      "conditions": {
+        "dataFlow": {
+          "operator": ">",
+          "value": 500
+        },
+        "consumers": {
+          "operator": "<",
+          "value": 5
+        },
+        "status": ["active"]
+      },
+      "recommendation": {
+        "action": "Optimize data distribution or reduce data flow rate",
+        "reason": "High data output with few consumers suggests inefficient resource usage",
+        "impact": "Optimizes network bandwidth and device performance"
+      },
+      "estimatedSavings": {
+        "type": "optimization",
+        "calculation": null,
+        "unit": "bandwidth_savings"
+      }
+    },
+    {
+      "id": "low-uptime",
+      "name": "Low Device Uptime",
+      "category": "reliability",
+      "severity": "warning",
+      "priority": 4,
+      "description": "Device uptime is below acceptable threshold",
+      "conditions": {
+        "uptime": {
+          "operator": "<",
+          "value": 95
+        },
+        "status": ["active", "critical"]
+      },
+      "recommendation": {
+        "action": "Investigate reliability issues and perform maintenance",
+        "reason": "Low uptime indicates frequent failures or connectivity issues",
+        "impact": "Improves service reliability"
+      },
+      "estimatedSavings": {
+        "type": "reliability",
+        "calculation": null,
+        "unit": "service_quality"
+      }
+    },
+    {
+      "id": "stale-data-emission",
+      "name": "Stale Data Emission",
+      "category": "data_quality",
+      "severity": "warning",
+      "priority": 5,
+      "description": "Device hasn't emitted data recently despite being active",
+      "conditions": {
+        "isConnected": true,
+        "status": ["active"],
+        "lastDataEmission": {
+          "operator": ">",
+          "value": 3600000,
+          "unit": "milliseconds_ago"
+        }
+      },
+      "recommendation": {
+        "action": "Check device sensors or data pipeline",
+        "reason": "Device is active but hasn't transmitted data recently - possible malfunction",
+        "impact": "Ensures data quality and device functionality"
+      },
+      "estimatedSavings": {
+        "type": "data_quality",
+        "calculation": null,
+        "unit": "operational_integrity"
+      }
+    },
+    {
+      "id": "optimal-performance",
+      "name": "Optimal Device Performance",
+      "category": "healthy",
+      "severity": "info",
+      "priority": 10,
+      "description": "Device is operating within optimal parameters",
+      "conditions": {
+        "isConnected": true,
+        "status": ["active"],
+        "consumers": {
+          "operator": ">",
+          "value": 0
+        },
+        "cpuUsage": {
+          "operator": "<=",
+          "value": 75
+        },
+        "uptime": {
+          "operator": ">=",
+          "value": 99
+        },
+        "dataFlow": {
+          "operator": ">",
+          "value": 0
+        }
+      },
+      "recommendation": {
+        "action": "No action required - device is performing optimally",
+        "reason": "All metrics are within healthy ranges",
+        "impact": "Maintain current operation"
+      },
+      "estimatedSavings": {
+        "type": null,
+        "calculation": null,
+        "unit": null
+      }
+    },
+    {
+      "id": "load-bank-overload",
+      "name": "Load Bank Near Capacity",
+      "category": "capacity",
+      "severity": "warning",
+      "priority": 2,
+      "description": "Load Bank is operating at high capacity and may need expansion",
+      "conditions": {
+        "type": "load_bank",
+        "loadPercentage": {
+          "operator": ">",
+          "value": 85
+        },
+        "status": ["active"]
+      },
+      "recommendation": {
+        "action": "Plan for Load Bank capacity expansion or load distribution",
+        "reason": "Load Bank is operating at over 85% capacity - risk of overload",
+        "impact": "Prevents power supply failures and ensures system reliability"
+      },
+      "estimatedSavings": {
+        "type": "risk_mitigation",
+        "calculation": null,
+        "unit": "reliability_improvement"
+      }
+    },
+    {
+      "id": "load-bank-critical-overload",
+      "name": "Load Bank Critical Overload",
+      "category": "capacity",
+      "severity": "critical",
+      "priority": 1,
+      "description": "Load Bank is critically overloaded and at risk of failure",
+      "conditions": {
+        "type": "load_bank",
+        "loadPercentage": {
+          "operator": ">",
+          "value": 95
+        },
+        "status": ["active"]
+      },
+      "recommendation": {
+        "action": "Immediately reduce load or add additional Load Bank capacity",
+        "reason": "Load Bank is at critical capacity - imminent risk of power supply failure",
+        "impact": "Prevents catastrophic power failures and equipment damage"
+      },
+      "estimatedSavings": {
+        "type": "risk_mitigation",
+        "calculation": null,
+        "unit": "critical_reliability"
+      }
+    },
+    {
+      "id": "load-bank-low-efficiency",
+      "name": "Load Bank Low Efficiency",
+      "category": "efficiency",
+      "severity": "warning",
+      "priority": 3,
+      "description": "Load Bank operating at suboptimal efficiency",
+      "conditions": {
+        "type": "load_bank",
+        "efficiency": {
+          "operator": "<",
+          "value": 90
+        },
+        "status": ["active"]
+      },
+      "recommendation": {
+        "action": "Schedule Load Bank maintenance and efficiency optimization",
+        "reason": "Load Bank efficiency below 90% - increased energy waste and costs",
+        "impact": "Improves energy efficiency and reduces operational costs"
+      },
+      "estimatedSavings": {
+        "type": "energy",
+        "calculation": "energyUsage * 30 * 0.12 * 0.05",
+        "unit": "$/month"
+      }
+    },
+    {
+      "id": "load-bank-high-temperature",
+      "name": "Load Bank High Temperature",
+      "category": "thermal",
+      "severity": "warning",
+      "priority": 2,
+      "description": "Load Bank temperature exceeds safe operating range",
+      "conditions": {
+        "type": "load_bank",
+        "temperature": {
+          "operator": ">",
+          "value": 50
+        },
+        "status": ["active"]
+      },
+      "recommendation": {
+        "action": "Check cooling system and reduce load if necessary",
+        "reason": "Load Bank temperature above 50°C - risk of thermal damage",
+        "impact": "Prevents thermal damage and extends equipment lifespan"
+      },
+      "estimatedSavings": {
+        "type": "maintenance",
+        "calculation": "replacement_cost * 0.4",
+        "unit": "$/year"
+      }
+    },
+    {
+      "id": "load-bank-optimal",
+      "name": "Load Bank Optimal Operation",
+      "category": "healthy",
+      "severity": "info",
+      "priority": 10,
+      "description": "Load Bank is operating within optimal parameters",
+      "conditions": {
+        "type": "load_bank",
+        "status": ["active"],
+        "loadPercentage": {
+          "operator": "<=",
+          "value": 85
+        },
+        "efficiency": {
+          "operator": ">=",
+          "value": 90
+        },
+        "temperature": {
+          "operator": "<=",
+          "value": 50
+        }
+      },
+      "recommendation": {
+        "action": "No action required - Load Bank is performing optimally",
+        "reason": "All Load Bank metrics are within healthy ranges",
+        "impact": "Maintain current operation and monitoring"
+      },
+      "estimatedSavings": {
+        "type": null,
+        "calculation": null,
+        "unit": null
+      }
+    }
+  ],
+  "thresholds": {
+    "energy": {
+      "waste_threshold_kwh": 5,
+      "cost_per_kwh": 0.12
+    },
+    "performance": {
+      "cpu_warning": 85,
+      "cpu_critical": 95,
+      "uptime_minimum": 95
+    },
+    "reliability": {
+      "max_restarts_per_week": 5,
+      "max_voltage_spikes_per_day": 3
+    },
+    "data": {
+      "high_flow_threshold_mbps": 500,
+      "low_consumer_count": 5,
+      "stale_data_threshold_ms": 3600000
+    }
+  },
+  "scoring": {
+    "description": "Health score calculation (100% = optimal, 0% = critical issues)",
+    "base_score": 100,
+    "deductions": {
+      "critical": 25,
+      "warning": 10,
+      "info": 0
+    },
+    "minimum_score": 0
+  }
+}

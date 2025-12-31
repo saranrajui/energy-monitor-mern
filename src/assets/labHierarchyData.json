@@ -1,0 +1,93 @@
+{
+  "labs": [
+    {
+      "id": "LAB-A",
+      "name": "Lab A - Power Systems",
+      "location": "Building 3, Floor 2",
+      "status": "good",
+      "utilization": 87,
+      "testBenches": [
+        {
+          "id": "TB001",
+          "name": "Test Bench TB-001",
+          "status": "critical",
+          "utilization": 92,
+          "activeDevices": 4,
+          "totalDevices": 10,
+          "alerts": 2
+        },
+        {
+          "id": "TB002",
+          "name": "Test Bench TB-002",
+          "status": "good",
+          "utilization": 78,
+          "activeDevices": 8,
+          "totalDevices": 10,
+          "alerts": 0
+        }
+      ]
+    },
+    {
+      "id": "LAB-B",
+      "name": "Lab B - Energy Analytics",
+      "location": "Building 5, Floor 1",
+      "status": "good",
+      "utilization": 65,
+      "testBenches": [
+        {
+          "id": "TB003",
+          "name": "Test Bench TB-003",
+          "status": "good",
+          "utilization": 68,
+          "activeDevices": 4,
+          "totalDevices": 12,
+          "alerts": 1
+        }
+      ]
+    },
+    {
+      "id": "LAB-C",
+      "name": "Lab C - Grid Simulation",
+      "location": "Building 7, Floor 3",
+      "status": "warning",
+      "utilization": 45,
+      "testBenches": [
+        {
+          "id": "TB004",
+          "name": "Test Bench TB-004",
+          "status": "dead",
+          "utilization": 0,
+          "activeDevices": 0,
+          "totalDevices": 8,
+          "alerts": 3
+        },
+        {
+          "id": "TB005",
+          "name": "Test Bench TB-005",
+          "status": "good",
+          "utilization": 82,
+          "activeDevices": 6,
+          "totalDevices": 8,
+          "alerts": 0
+        },
+        {
+          "id": "TB006",
+          "name": "Test Bench TB-006",
+          "status": "critical",
+          "utilization": 54,
+          "activeDevices": 3,
+          "totalDevices": 9,
+          "alerts": 1
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "totalLabs": 3,
+    "totalTestBenches": 6,
+    "totalDevices": 57,
+    "activeDevices": 25,
+    "overallUtilization": 66,
+    "criticalAlerts": 6
+  }
+}

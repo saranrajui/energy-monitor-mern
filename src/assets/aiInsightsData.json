@@ -1,0 +1,53 @@
+{
+  "insights": [
+    {
+      "type": "alert",
+      "priority": "high",
+      "title": "Idle Devices Consuming Energy",
+      "description": "3 devices in TB-001 have zero consumers but consuming 3.5 kWh/day. Immediate action recommended.",
+      "impact": "Save $127/month"
+    },
+    {
+      "type": "optimization",
+      "priority": "medium",
+      "title": "Peak Hour Load Balancing",
+      "description": "Shift non-critical workloads from 14:00-18:00 to off-peak hours for better efficiency.",
+      "impact": "Reduce peak by 18%"
+    },
+    {
+      "type": "savings",
+      "priority": "low",
+      "title": "Scheduled Power Down Opportunity",
+      "description": "TB-003 shows consistent inactivity 00:00-06:00. Auto-shutdown can reduce waste.",
+      "impact": "Save $45/month"
+    },
+    {
+      "type": "prediction",
+      "priority": "medium",
+      "title": "Maintenance Alert - TB-006",
+      "description": "Device D-09 showing unusual energy patterns. Predict 87% chance of failure within 7 days.",
+      "impact": "Prevent downtime"
+    },
+    {
+      "type": "optimization",
+      "priority": "low",
+      "title": "Lab C Underutilization",
+      "description": "Lab C running at 45% capacity. Consider consolidating workloads to reduce overhead.",
+      "impact": "Save $89/month"
+    },
+    {
+      "type": "savings",
+      "priority": "high",
+      "title": "Dead Device Replacement",
+      "description": "TB-004 has been offline for 12 days. Decommission or reallocate resources immediately.",
+      "impact": "Save $156/month"
+    }
+  ],
+  "summary": {
+    "totalInsights": 6,
+    "highPriority": 2,
+    "mediumPriority": 2,
+    "lowPriority": 2,
+    "estimatedMonthlySavings": 544
+  }
+}

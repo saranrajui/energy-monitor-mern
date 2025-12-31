@@ -1,0 +1,405 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" width="1440" height="900">
+  <defs>
+    <filter id="glass" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="10" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.3 0"/>
+      <feBlend in="SourceGraphic" in2="blur"/>
+    </filter>
+    
+    <filter id="glow-green">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="glow-red">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="glow-blue">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a;stop-opacity:1"/>
+      <stop offset="50%" style="stop-color:#0f1029;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#1a0a2e;stop-opacity:1"/>
+    </linearGradient>
+    
+    <linearGradient id="card-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:rgba(255,255,255,0.12)"/>
+      <stop offset="100%" style="stop-color:rgba(255,255,255,0.05)"/>
+    </linearGradient>
+    
+    <pattern id="grid-pattern" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(99,102,241,0.1)" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1440" height="900" fill="url(#bg-gradient)"/>
+  <rect width="1440" height="900" fill="url(#grid-pattern)" opacity="0.5"/>
+  
+  <!-- Animated background particles -->
+  <g opacity="0.3">
+    <circle cx="200" cy="150" r="2" fill="#6366f1">
+      <animate attributeName="cy" values="150;750;150" dur="20s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.3;0.8;0.3" dur="20s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="600" cy="300" r="1.5" fill="#8b5cf6">
+      <animate attributeName="cy" values="300;800;300" dur="25s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1000" cy="100" r="2" fill="#a78bfa">
+      <animate attributeName="cy" values="100;700;100" dur="18s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1300" cy="500" r="1" fill="#6366f1">
+      <animate attributeName="cy" values="500;850;500" dur="15s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Header -->
+  <rect x="0" y="0" width="1440" height="70" fill="rgba(15,16,41,0.9)" stroke="rgba(99,102,241,0.3)" stroke-width="1"/>
+  <text x="30" y="45" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="700" fill="#ffffff">Test Lab Energy Intelligence</text>
+  <text x="320" y="45" font-family="system-ui, sans-serif" font-size="14" fill="rgba(255,255,255,0.6)">Real-time monitoring and AI-powered insights</text>
+  
+  <!-- Live indicator -->
+  <g transform="translate(1320, 35)">
+    <circle r="6" fill="#10b981" filter="url(#glow-green)">
+      <animate attributeName="opacity" values="1;0.4;1" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="15" y="5" font-family="system-ui, sans-serif" font-size="12" fill="#10b981" font-weight="600">LIVE</text>
+  </g>
+  
+  <!-- Main Stats Row -->
+  <g transform="translate(20, 90)">
+    <!-- Total Labs Card -->
+    <g filter="url(#glass)">
+      <rect x="0" y="0" width="220" height="100" rx="16" fill="url(#card-gradient)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+      <text x="20" y="30" font-family="system-ui, sans-serif" font-size="12" fill="rgba(255,255,255,0.6)" letter-spacing="1">TOTAL LABS</text>
+      <text x="20" y="70" font-family="system-ui, sans-serif" font-size="36" font-weight="700" fill="#ffffff">3</text>
+      <text x="65" y="70" font-family="system-ui, sans-serif" font-size="14" fill="#10b981">Active</text>
+    </g>
+    
+    <!-- Test Benches Card -->
+    <g transform="translate(240, 0)" filter="url(#glass)">
+      <rect x="0" y="0" width="220" height="100" rx="16" fill="url(#card-gradient)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+      <text x="20" y="30" font-family="system-ui, sans-serif" font-size="12" fill="rgba(255,255,255,0.6)" letter-spacing="1">TEST BENCHES</text>
+      <text x="20" y="70" font-family="system-ui, sans-serif" font-size="36" font-weight="700" fill="#ffffff">12</text>
+      <text x="70" y="70" font-family="system-ui, sans-serif" font-size="14" fill="rgba(255,255,255,0.6)">across labs</text>
+    </g>
+    
+    <!-- Total Devices Card -->
+    <g transform="translate(480, 0)" filter="url(#glass)">
+      <rect x="0" y="0" width="220" height="100" rx="16" fill="url(#card-gradient)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+      <text x="20" y="30" font-family="system-ui, sans-serif" font-size="12" fill="rgba(255,255,255,0.6)" letter-spacing="1">TOTAL DEVICES</text>
+      <text x="20" y="70" font-family="system-ui, sans-serif" font-size="36" font-weight="700" fill="#ffffff">847</text>
+      <text x="100" y="70" font-family="system-ui, sans-serif" font-size="14" fill="#fbbf24">32% idle</text>
+    </g>
+    
+    <!-- Energy Consumed Card -->
+    <g transform="translate(720, 0)" filter="url(#glass)">
+      <rect x="0" y="0" width="220" height="100" rx="16" fill="url(#card-gradient)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+      <text x="20" y="30" font-family="system-ui, sans-serif" font-size="12" fill="rgba(255,255,255,0.6)" letter-spacing="1">ENERGY TODAY</text>
+      <text x="20" y="70" font-family="system-ui, sans-serif" font-size="36" font-weight="700" fill="#ffffff">2.4</text>
+      <text x="75" y="70" font-family="system-ui, sans-serif" font-size="14" fill="rgba(255,255,255,0.6)">MWh</text>
+      <text x="120" y="70" font-family="system-ui, sans-serif" font-size="12" fill="#ef4444">+12%</text>
+    </g>
+    
+    <!-- Wasted Energy Card -->
+    <g transform="translate(960, 0)" filter="url(#glass)">
+      <rect x="0" y="0" width="220" height="100" rx="16" fill="rgba(239,68,68,0.15)" stroke="rgba(239,68,68,0.5)" stroke-width="2"/>
+      <text x="20" y="30" font-family="system-ui, sans-serif" font-size="12" fill="#fca5a5" letter-spacing="1">ENERGY WASTE</text>
+      <text x="20" y="70" font-family="system-ui, sans-serif" font-size="36" font-weight="700" fill="#ef4444">847</text>
+      <text x="100" y="70" font-family="system-ui, sans-serif" font-size="14" fill="#fca5a5">kWh/day</text>
+      <rect x="0" y="0" width="220" height="100" rx="16" fill="none" stroke="#ef4444" stroke-width="1" opacity="0.5">
+        <animate attributeName="opacity" values="0.5;0.2;0.5" dur="3s" repeatCount="indefinite"/>
+      </rect>
+    </g>
+    
+    <!-- Savings Potential -->
+    <g transform="translate(1200, 0)" filter="url(#glass)">
+      <rect x="0" y="0" width="200" height="100" rx="16" fill="rgba(16,185,129,0.1)" stroke="rgba(16,185,129,0.4)" stroke-width="1"/>
+      <text x="20" y="30" font-family="system-ui, sans-serif" font-size="12" fill="#6ee7b7" letter-spacing="1">SAVINGS</text>
+      <text x="20" y="70" font-family="system-ui, sans-serif" font-size="36" font-weight="700" fill="#10b981">$12K</text>
+      <text x="110" y="70" font-family="system-ui, sans-serif" font-size="12" fill="#6ee7b7">/month</text>
+    </g>
+  </g>
+  
+  <!-- Left Panel: Lab Hierarchy -->
+  <g transform="translate(20, 210)" filter="url(#glass)">
+    <rect x="0" y="0" width="380" height="470" rx="20" fill="url(#card-gradient)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+    <text x="25" y="35" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#ffffff">Lab Hierarchy</text>
+    
+    <!-- Lab 1 -->
+    <g transform="translate(25, 60)">
+      <rect x="0" y="0" width="330" height="130" rx="12" fill="rgba(99,102,241,0.1)" stroke="rgba(99,102,241,0.3)" stroke-width="1"/>
+      <text x="15" y="25" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#a5b4fc">Lab A - Main Testing</text>
+      
+      <g transform="translate(15, 40)">
+        <rect x="0" y="0" width="300" height="35" rx="8" fill="rgba(255,255,255,0.05)" stroke="rgba(16,185,129,0.3)" stroke-width="1"/>
+        <circle cx="15" cy="17" r="6" fill="#10b981" filter="url(#glow-green)"/>
+        <text x="30" y="22" font-family="system-ui, sans-serif" font-size="12" fill="#ffffff">Bench A1</text>
+        <text x="120" y="22" font-family="system-ui, sans-serif" font-size="11" fill="rgba(255,255,255,0.6)">48 devices</text>
+        <text x="220" y="22" font-family="system-ui, sans-serif" font-size="11" fill="#10b981">92% utilized</text>
+      </g>
+      
+      <g transform="translate(15, 80)">
+        <rect x="0" y="0" width="300" height="35" rx="8" fill="rgba(255,255,255,0.05)" stroke="rgba(251,191,36,0.3)" stroke-width="1"/>
+        <circle cx="15" cy="17" r="6" fill="#fbbf24"/>
+        <text x="30" y="22" font-family="system-ui, sans-serif" font-size="12" fill="#ffffff">Bench A2</text>
+        <text x="120" y="22" font-family="system-ui, sans-serif" font-size="11" fill="rgba(255,255,255,0.6)">52 devices</text>
+        <text x="220" y="22" font-family="system-ui, sans-serif" font-size="11" fill="#fbbf24">45% utilized</text>
+      </g>
+    </g>
+    
+    <!-- Lab 2 - Critical -->
+    <g transform="translate(25, 200)">
+      <rect x="0" y="0" width="330" height="130" rx="12" fill="rgba(239,68,68,0.1)" stroke="rgba(239,68,68,0.4)" stroke-width="2"/>
+      <text x="15" y="25" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#fca5a5">Lab B - Stress Testing ALERT</text>
+      
+      <g transform="translate(15, 40)">
+        <rect x="0" y="0" width="300" height="35" rx="8" fill="rgba(239,68,68,0.1)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+        <circle cx="15" cy="17" r="6" fill="#ef4444" filter="url(#glow-red)">
+          <animate attributeName="opacity" values="1;0.3;1" dur="1.5s" repeatCount="indefinite"/>
+        </circle>
+        <text x="30" y="22" font-family="system-ui, sans-serif" font-size="12" fill="#ffffff">Bench B1</text>
+        <text x="120" y="22" font-family="system-ui, sans-serif" font-size="11" fill="rgba(255,255,255,0.6)">156 devices</text>
+        <text x="220" y="22" font-family="system-ui, sans-serif" font-size="11" fill="#ef4444">8% utilized</text>
+      </g>
+      
+      <g transform="translate(15, 80)">
+        <rect x="0" y="0" width="300" height="35" rx="8" fill="rgba(239,68,68,0.1)" stroke="rgba(239,68,68,0.3)" stroke-width="1"/>
+        <circle cx="15" cy="17" r="6" fill="#ef4444"/>
+        <text x="30" y="22" font-family="system-ui, sans-serif" font-size="12" fill="#ffffff">Bench B2</text>
+        <text x="120" y="22" font-family="system-ui, sans-serif" font-size="11" fill="rgba(255,255,255,0.6)">89 devices</text>
+        <text x="220" y="22" font-family="system-ui, sans-serif" font-size="11" fill="#ef4444">12% utilized</text>
+      </g>
+    </g>
+    
+    <!-- Lab 3 -->
+    <g transform="translate(25, 340)">
+      <rect x="0" y="0" width="330" height="90" rx="12" fill="rgba(99,102,241,0.1)" stroke="rgba(99,102,241,0.3)" stroke-width="1"/>
+      <text x="15" y="25" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#a5b4fc">Lab C - Integration</text>
+      
+      <g transform="translate(15, 40)">
+        <rect x="0" y="0" width="300" height="35" rx="8" fill="rgba(255,255,255,0.05)" stroke="rgba(16,185,129,0.3)" stroke-width="1"/>
+        <circle cx="15" cy="17" r="6" fill="#10b981"/>
+        <text x="30" y="22" font-family="system-ui, sans-serif" font-size="12" fill="#ffffff">Bench C1</text>
+        <text x="120" y="22" font-family="system-ui, sans-serif" font-size="11" fill="rgba(255,255,255,0.6)">78 devices</text>
+        <text x="220" y="22" font-family="system-ui, sans-serif" font-size="11" fill="#10b981">87% utilized</text>
+      </g>
+    </g>
+  </g>
+  
+  <!-- Center Panel: Device Network -->
+  <g transform="translate(420, 210)" filter="url(#glass)">
+    <rect x="0" y="0" width="580" height="470" rx="20" fill="url(#card-gradient)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+    <text x="25" y="35" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#ffffff">Device Network and Data Flow</text>
+    <text x="440" y="35" font-family="system-ui, sans-serif" font-size="11" fill="rgba(255,255,255,0.5)">Bench B1 Selected</text>
+    
+    <!-- Network Graph -->
+    <g transform="translate(290, 250)">
+      <!-- Central Hub -->
+      <circle r="40" fill="rgba(99,102,241,0.3)" stroke="#6366f1" stroke-width="2" filter="url(#glow-blue)"/>
+      <circle r="35" fill="rgba(15,16,41,0.9)"/>
+      <text x="0" y="5" font-family="system-ui, sans-serif" font-size="12" fill="#a5b4fc" text-anchor="middle">Bench B1</text>
+      
+      <!-- Pulse animation -->
+      <circle r="50" fill="none" stroke="#6366f1" stroke-width="1" opacity="0">
+        <animate attributeName="r" values="40;80;40" dur="3s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.8;0;0.8" dur="3s" repeatCount="indefinite"/>
+      </circle>
+      
+      <!-- Active Device 1 -->
+      <g transform="translate(-120, -100)">
+        <line x1="120" y1="100" x2="30" y2="25" stroke="#10b981" stroke-width="2" opacity="0.6"/>
+        <circle r="20" fill="rgba(16,185,129,0.2)" stroke="#10b981" stroke-width="2"/>
+        <text x="0" y="4" font-family="system-ui, sans-serif" font-size="9" fill="#10b981" text-anchor="middle">D-01</text>
+        <text x="0" y="-30" font-family="system-ui, sans-serif" font-size="8" fill="rgba(255,255,255,0.6)" text-anchor="middle">3 consumers</text>
+      </g>
+      
+      <!-- Idle Device 1 -->
+      <g transform="translate(130, -80)">
+        <line x1="-130" y1="80" x2="-20" y2="15" stroke="#ef4444" stroke-width="2" stroke-dasharray="4,4" opacity="0.4"/>
+        <circle r="20" fill="rgba(239,68,68,0.2)" stroke="#ef4444" stroke-width="2">
+          <animate attributeName="stroke-opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
+        </circle>
+        <text x="0" y="4" font-family="system-ui, sans-serif" font-size="9" fill="#ef4444" text-anchor="middle">D-02</text>
+        <text x="0" y="-30" font-family="system-ui, sans-serif" font-size="8" fill="#fca5a5" text-anchor="middle">0 consumers</text>
+      </g>
+      
+      <!-- Warning Device -->
+      <g transform="translate(160, 40)">
+        <line x1="-160" y1="-40" x2="-25" y2="-8" stroke="#fbbf24" stroke-width="2" opacity="0.5"/>
+        <circle r="20" fill="rgba(251,191,36,0.2)" stroke="#fbbf24" stroke-width="2"/>
+        <text x="0" y="4" font-family="system-ui, sans-serif" font-size="9" fill="#fbbf24" text-anchor="middle">D-03</text>
+        <text x="0" y="-30" font-family="system-ui, sans-serif" font-size="8" fill="rgba(255,255,255,0.6)" text-anchor="middle">1 consumer</text>
+      </g>
+      
+      <!-- Idle Device 2 -->
+      <g transform="translate(100, 130)">
+        <line x1="-100" y1="-130" x2="-15" y2="-18" stroke="#ef4444" stroke-width="2" stroke-dasharray="4,4" opacity="0.4"/>
+        <circle r="20" fill="rgba(239,68,68,0.2)" stroke="#ef4444" stroke-width="2"/>
+        <text x="0" y="4" font-family="system-ui, sans-serif" font-size="9" fill="#ef4444" text-anchor="middle">D-04</text>
+        <text x="0" y="-30" font-family="system-ui, sans-serif" font-size="8" fill="#fca5a5" text-anchor="middle">0 consumers</text>
+      </g>
+      
+      <!-- Active Device 2 -->
+      <g transform="translate(-80, 140)">
+        <line x1="80" y1="-140" x2="12" y2="-20" stroke="#10b981" stroke-width="2" opacity="0.6"/>
+        <circle r="20" fill="rgba(16,185,129,0.2)" stroke="#10b981" stroke-width="2"/>
+        <text x="0" y="4" font-family="system-ui, sans-serif" font-size="9" fill="#10b981" text-anchor="middle">D-05</text>
+        <text x="0" y="-30" font-family="system-ui, sans-serif" font-size="8" fill="rgba(255,255,255,0.6)" text-anchor="middle">5 consumers</text>
+      </g>
+      
+      <!-- Idle Device 3 -->
+      <g transform="translate(-170, 20)">
+        <line x1="170" y1="-20" x2="25" y2="-3" stroke="#ef4444" stroke-width="2" stroke-dasharray="4,4" opacity="0.4"/>
+        <circle r="20" fill="rgba(239,68,68,0.2)" stroke="#ef4444" stroke-width="2"/>
+        <text x="0" y="4" font-family="system-ui, sans-serif" font-size="9" fill="#ef4444" text-anchor="middle">D-06</text>
+        <text x="0" y="-30" font-family="system-ui, sans-serif" font-size="8" fill="#fca5a5" text-anchor="middle">0 consumers</text>
+      </g>
+      
+      <!-- More devices -->
+      <circle cx="-40" cy="-160" r="8" fill="rgba(239,68,68,0.3)" stroke="#ef4444" stroke-width="1"/>
+      <circle cx="20" cy="-170" r="8" fill="rgba(16,185,129,0.3)" stroke="#10b981" stroke-width="1"/>
+      <circle cx="80" cy="-150" r="8" fill="rgba(239,68,68,0.3)" stroke="#ef4444" stroke-width="1"/>
+      <circle cx="-160" cy="-60" r="8" fill="rgba(251,191,36,0.3)" stroke="#fbbf24" stroke-width="1"/>
+      <circle cx="-180" cy="80" r="8" fill="rgba(239,68,68,0.3)" stroke="#ef4444" stroke-width="1"/>
+      <circle cx="-140" cy="130" r="8" fill="rgba(239,68,68,0.3)" stroke="#ef4444" stroke-width="1"/>
+      <circle cx="180" cy="100" r="8" fill="rgba(16,185,129,0.3)" stroke="#10b981" stroke-width="1"/>
+      <circle cx="200" cy="-20" r="8" fill="rgba(239,68,68,0.3)" stroke="#ef4444" stroke-width="1"/>
+      
+      <!-- Legend -->
+      <g transform="translate(-250, 180)">
+        <circle cx="0" cy="0" r="6" fill="#10b981"/>
+        <text x="15" y="4" font-family="system-ui, sans-serif" font-size="10" fill="rgba(255,255,255,0.7)">Active</text>
+        
+        <circle cx="100" cy="0" r="6" fill="#fbbf24"/>
+        <text x="115" y="4" font-family="system-ui, sans-serif" font-size="10" fill="rgba(255,255,255,0.7)">Low usage</text>
+        
+        <circle cx="220" cy="0" r="6" fill="#ef4444"/>
+        <text x="235" y="4" font-family="system-ui, sans-serif" font-size="10" fill="rgba(255,255,255,0.7)">Idle - no consumers</text>
+      </g>
+    </g>
+  </g>
+  
+  <!-- Right Panel: AI Insights -->
+  <g transform="translate(1020, 210)" filter="url(#glass)">
+    <rect x="0" y="0" width="400" height="470" rx="20" fill="url(#card-gradient)" stroke="rgba(139,92,246,0.4)" stroke-width="2"/>
+    <rect x="0" y="0" width="400" height="50" rx="20" fill="rgba(139,92,246,0.2)"/>
+    <text x="25" y="32" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#c4b5fd">AI Insights and Recommendations</text>
+    
+    <!-- Critical Insight -->
+    <g transform="translate(20, 70)">
+      <rect x="0" y="0" width="360" height="110" rx="12" fill="rgba(239,68,68,0.15)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+      <rect x="0" y="0" width="6" height="110" rx="3" fill="#ef4444"/>
+      <text x="20" y="25" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#fca5a5">CRITICAL - IMMEDIATE ACTION</text>
+      <text x="20" y="48" font-family="system-ui, sans-serif" font-size="13" font-weight="500" fill="#ffffff">143 devices with zero consumers</text>
+      <text x="20" y="70" font-family="system-ui, sans-serif" font-size="11" fill="rgba(255,255,255,0.7)">Bench B1 has 143 devices publishing data</text>
+      <text x="20" y="85" font-family="system-ui, sans-serif" font-size="11" fill="rgba(255,255,255,0.7)">with no active consumers. Wasting 456 kWh/day</text>
+      <rect x="240" y="15" width="110" height="28" rx="6" fill="rgba(239,68,68,0.3)" stroke="#ef4444" stroke-width="1"/>
+      <text x="295" y="33" font-family="system-ui, sans-serif" font-size="11" fill="#fca5a5" text-anchor="middle">Power Down</text>
+    </g>
+    
+    <!-- Warning Insight -->
+    <g transform="translate(20, 195)">
+      <rect x="0" y="0" width="360" height="95" rx="12" fill="rgba(251,191,36,0.1)" stroke="rgba(251,191,36,0.3)" stroke-width="1"/>
+      <rect x="0" y="0" width="6" height="95" rx="3" fill="#fbbf24"/>
+      <text x="20" y="25" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#fbbf24">PREDICTIVE MAINTENANCE</text>
+      <text x="20" y="48" font-family="system-ui, sans-serif" font-size="13" font-weight="500" fill="#ffffff">Device D-47 showing anomaly</text>
+      <text x="20" y="70" font-family="system-ui, sans-serif" font-size="11" fill="rgba(255,255,255,0.7)">Power consumption spiked 340% while data</text>
+      <text x="20" y="85" font-family="system-ui, sans-serif" font-size="11" fill="rgba(255,255,255,0.7)">output dropped. Possible hardware failure.</text>
+    </g>
+    
+    <!-- Optimization Insight -->
+    <g transform="translate(20, 305)">
+      <rect x="0" y="0" width="360" height="95" rx="12" fill="rgba(16,185,129,0.1)" stroke="rgba(16,185,129,0.3)" stroke-width="1"/>
+      <rect x="0" y="0" width="6" height="95" rx="3" fill="#10b981"/>
+      <text x="20" y="25" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#6ee7b7">OPTIMIZATION OPPORTUNITY</text>
+      <text x="20" y="48" font-family="system-ui, sans-serif" font-size="13" font-weight="500" fill="#ffffff">Schedule-based power management</text>
+      <text x="20" y="70" font-family="system-ui, sans-serif" font-size="11" fill="rgba(255,255,255,0.7)">78 devices only used during business hours.</text>
+      <text x="20" y="85" font-family="system-ui, sans-serif" font-size="11" fill="rgba(255,255,255,0.7)">Auto-shutdown at night saves $3.2K/month</text>
+    </g>
+    
+    <!-- AI Confidence Score -->
+    <g transform="translate(20, 420)">
+      <rect x="0" y="0" width="360" height="35" rx="8" fill="rgba(99,102,241,0.1)"/>
+      <text x="15" y="22" font-family="system-ui, sans-serif" font-size="11" fill="rgba(255,255,255,0.6)">AI Confidence:</text>
+      <rect x="120" y="12" width="180" height="12" rx="6" fill="rgba(255,255,255,0.1)"/>
+      <rect x="120" y="12" width="162" height="12" rx="6" fill="#6366f1">
+        <animate attributeName="width" values="0;162" dur="2s" fill="freeze"/>
+      </rect>
+      <text x="315" y="22" font-family="system-ui, sans-serif" font-size="11" fill="#a5b4fc">90%</text>
+    </g>
+  </g>
+  
+  <!-- Bottom Status Bar -->
+  <g transform="translate(0, 700)">
+    <rect x="20" y="0" width="1400" height="180" rx="20" fill="rgba(15,16,41,0.8)" stroke="rgba(99,102,241,0.2)" stroke-width="1"/>
+    
+    <!-- Device Detail Panel -->
+    <g transform="translate(40, 20)">
+      <text x="0" y="20" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#ffffff">Selected Device: D-02 (Idle)</text>
+      
+      <g transform="translate(0, 40)">
+        <rect x="0" y="0" width="200" height="60" rx="10" fill="rgba(255,255,255,0.05)"/>
+        <text x="15" y="20" font-family="system-ui, sans-serif" font-size="10" fill="rgba(255,255,255,0.5)">RUNTIME</text>
+        <text x="15" y="45" font-family="system-ui, sans-serif" font-size="20" font-weight="600" fill="#ffffff">2,847 hrs</text>
+      </g>
+      
+      <g transform="translate(220, 40)">
+        <rect x="0" y="0" width="200" height="60" rx="10" fill="rgba(255,255,255,0.05)"/>
+        <text x="15" y="20" font-family="system-ui, sans-serif" font-size="10" fill="rgba(255,255,255,0.5)">ENERGY CONSUMED</text>
+        <text x="15" y="45" font-family="system-ui, sans-serif" font-size="20" font-weight="600" fill="#ef4444">1.2 kWh/day</text>
+      </g>
+      
+      <g transform="translate(440, 40)">
+        <rect x="0" y="0" width="200" height="60" rx="10" fill="rgba(255,255,255,0.05)"/>
+        <text x="15" y="20" font-family="system-ui, sans-serif" font-size="10" fill="rgba(255,255,255,0.5)">DATA PUBLISHING</text>
+        <text x="15" y="45" font-family="system-ui, sans-serif" font-size="20" font-weight="600" fill="#fbbf24">45 KB/s</text>
+      </g>
+      
+      <g transform="translate(660, 40)">
+        <rect x="0" y="0" width="200" height="60" rx="10" fill="rgba(239,68,68,0.1)" stroke="rgba(239,68,68,0.3)" stroke-width="1"/>
+        <text x="15" y="20" font-family="system-ui, sans-serif" font-size="10" fill="#fca5a5">CONSUMERS</text>
+        <text x="15" y="45" font-family="system-ui, sans-serif" font-size="20" font-weight="600" fill="#ef4444">0 active</text>
+      </g>
+      
+      <g transform="translate(880, 40)">
+        <rect x="0" y="0" width="200" height="60" rx="10" fill="rgba(255,255,255,0.05)"/>
+        <text x="15" y="20" font-family="system-ui, sans-serif" font-size="10" fill="rgba(255,255,255,0.5)">HEALTH STATUS</text>
+        <text x="15" y="45" font-family="system-ui, sans-serif" font-size="20" font-weight="600" fill="#10b981">Good</text>
+      </g>
+      
+      <g transform="translate(1100, 40)">
+        <rect x="0" y="0" width="260" height="60" rx="10" fill="rgba(139,92,246,0.2)" stroke="rgba(139,92,246,0.4)" stroke-width="1"/>
+        <text x="15" y="20" font-family="system-ui, sans-serif" font-size="10" fill="#c4b5fd">AI RECOMMENDATION</text>
+        <text x="15" y="42" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="#ffffff">Power down immediately</text>
+        <text x="15" y="55" font-family="system-ui, sans-serif" font-size="10" fill="rgba(255,255,255,0.6)">No consumers for 14 days</text>
+      </g>
+    </g>
+    
+    <!-- Energy consumption mini chart -->
+    <g transform="translate(40, 125)">
+      <text x="0" y="15" font-family="system-ui, sans-serif" font-size="11" fill="rgba(255,255,255,0.5)">24h Energy Trend</text>
+      <polyline points="100,30 150,25 200,35 250,20 300,30 350,15 400,25 450,20 500,30 550,18 600,28 650,22" 
+                fill="none" stroke="#6366f1" stroke-width="2" opacity="0.8">
+        <animate attributeName="stroke-dashoffset" from="1000" to="0" dur="3s" fill="freeze"/>
+      </polyline>
+      <circle cx="650" cy="22" r="4" fill="#6366f1">
+        <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,547 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" width="1440" height="900">
+  <defs>
+    <filter id="glass">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="10" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.3 0"/>
+      <feBlend in="SourceGraphic" in2="blur"/>
+    </filter>
+    
+    <filter id="glow-green">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="glow-red">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="glow-blue">
+      <feGaussianBlur stdDeviation="10" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="glow-yellow">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="electric-glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.4  0 0 0 0 0.8  0 0 0 0 1  0 0 0 1 0" result="glow"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="50%" style="stop-color:#0f1029"/>
+      <stop offset="100%" style="stop-color:#1a0a2e"/>
+    </linearGradient>
+    
+    <linearGradient id="card-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:rgba(255,255,255,0.12)"/>
+      <stop offset="100%" style="stop-color:rgba(255,255,255,0.05)"/>
+    </linearGradient>
+    
+    <radialGradient id="energy-burst" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#6366f1;stop-opacity:0.8"/>
+      <stop offset="100%" style="stop-color:#6366f1;stop-opacity:0"/>
+    </radialGradient>
+    
+    <pattern id="circuit-pattern" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 30 20 M 0 30 L 20 30 M 40 30 L 60 30 M 30 40 L 30 60" fill="none" stroke="rgba(99,102,241,0.15)" stroke-width="1"/>
+      <circle cx="30" cy="30" r="3" fill="none" stroke="rgba(99,102,241,0.2)" stroke-width="1"/>
+    </pattern>
+    
+    <!-- Animated dash pattern for electricity -->
+    <pattern id="electric-dash" width="20" height="1" patternUnits="userSpaceOnUse">
+      <rect width="10" height="1" fill="#60a5fa"/>
+    </pattern>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1440" height="900" fill="url(#bg-gradient)"/>
+  <rect width="1440" height="900" fill="url(#circuit-pattern)" opacity="0.4"/>
+  
+  <!-- Header -->
+  <rect x="0" y="0" width="1440" height="60" fill="rgba(15,16,41,0.95)" stroke="rgba(99,102,241,0.3)" stroke-width="1"/>
+  <text x="30" y="38" font-family="system-ui, sans-serif" font-size="22" font-weight="700" fill="#ffffff">Device Network and Data Flow - Bench B1</text>
+  
+  <!-- Live indicator -->
+  <g transform="translate(1350, 30)">
+    <circle r="8" fill="#10b981" filter="url(#glow-green)">
+      <animate attributeName="r" values="8;12;8" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;0.6;1" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="20" y="5" font-family="system-ui, sans-serif" font-size="14" fill="#10b981" font-weight="600">LIVE</text>
+  </g>
+  
+  <!-- Main Network Visualization Area -->
+  <g transform="translate(720, 450)">
+    
+    <!-- Central Hub - The Test Bench -->
+    <g>
+      <!-- Outer energy rings -->
+      <circle r="90" fill="none" stroke="rgba(99,102,241,0.1)" stroke-width="1">
+        <animate attributeName="r" values="90;120;90" dur="4s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.3;0;0.3" dur="4s" repeatCount="indefinite"/>
+      </circle>
+      <circle r="80" fill="none" stroke="rgba(99,102,241,0.2)" stroke-width="1">
+        <animate attributeName="r" values="80;110;80" dur="3s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.4;0;0.4" dur="3s" repeatCount="indefinite"/>
+      </circle>
+      <circle r="70" fill="none" stroke="rgba(99,102,241,0.3)" stroke-width="2">
+        <animate attributeName="r" values="70;100;70" dur="2.5s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.5;0;0.5" dur="2.5s" repeatCount="indefinite"/>
+      </circle>
+      
+      <!-- Main hub -->
+      <circle r="60" fill="rgba(99,102,241,0.3)" stroke="#6366f1" stroke-width="3" filter="url(#glow-blue)"/>
+      <circle r="50" fill="rgba(15,16,41,0.95)" stroke="rgba(99,102,241,0.5)" stroke-width="2"/>
+      
+      <!-- Rotating inner ring -->
+      <circle r="45" fill="none" stroke="rgba(99,102,241,0.4)" stroke-width="2" stroke-dasharray="10 20">
+        <animateTransform attributeName="transform" type="rotate" values="0;360" dur="20s" repeatCount="indefinite"/>
+      </circle>
+      
+      <text x="0" y="-5" font-family="system-ui, sans-serif" font-size="14" fill="#a5b4fc" text-anchor="middle" font-weight="600">BENCH B1</text>
+      <text x="0" y="12" font-family="system-ui, sans-serif" font-size="10" fill="rgba(255,255,255,0.6)" text-anchor="middle">156 Devices</text>
+    </g>
+    
+    <!-- DEVICE 1: Active - Heavy Data Flow -->
+    <g transform="translate(-280, -180)">
+      <!-- Connection line with flowing electricity -->
+      <path id="path1" d="M280,180 Q200,100 40,20" fill="none" stroke="rgba(16,185,129,0.3)" stroke-width="3"/>
+      <path d="M280,180 Q200,100 40,20" fill="none" stroke="#10b981" stroke-width="2" stroke-dasharray="8 12" filter="url(#electric-glow)">
+        <animate attributeName="stroke-dashoffset" values="0;-40" dur="0.8s" repeatCount="indefinite"/>
+      </path>
+      
+      <!-- Data particles flowing TO hub -->
+      <circle r="4" fill="#10b981" filter="url(#glow-green)">
+        <animateMotion dur="1.2s" repeatCount="indefinite">
+          <mpath href="#path1"/>
+        </animateMotion>
+      </circle>
+      <circle r="3" fill="#34d399">
+        <animateMotion dur="1.2s" repeatCount="indefinite" begin="0.3s">
+          <mpath href="#path1"/>
+        </animateMotion>
+      </circle>
+      <circle r="3" fill="#6ee7b7">
+        <animateMotion dur="1.2s" repeatCount="indefinite" begin="0.6s">
+          <mpath href="#path1"/>
+        </animateMotion>
+      </circle>
+      <circle r="2" fill="#a7f3d0">
+        <animateMotion dur="1.2s" repeatCount="indefinite" begin="0.9s">
+          <mpath href="#path1"/>
+        </animateMotion>
+      </circle>
+      
+      <!-- Device node -->
+      <circle r="35" fill="rgba(16,185,129,0.15)" stroke="#10b981" stroke-width="3" filter="url(#glow-green)">
+        <animate attributeName="r" values="35;38;35" dur="1.5s" repeatCount="indefinite"/>
+      </circle>
+      <circle r="28" fill="rgba(15,16,41,0.9)"/>
+      
+      <!-- Electric spark effect -->
+      <g>
+        <line x1="-20" y1="0" x2="-35" y2="-8" stroke="#10b981" stroke-width="2" opacity="0">
+          <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite"/>
+        </line>
+        <line x1="20" y1="-5" x2="32" y2="-15" stroke="#10b981" stroke-width="2" opacity="0">
+          <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite" begin="0.5s"/>
+        </line>
+        <line x1="15" y1="18" x2="28" y2="30" stroke="#10b981" stroke-width="2" opacity="0">
+          <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite" begin="1s"/>
+        </line>
+      </g>
+      
+      <!-- Data emission rings -->
+      <circle r="40" fill="none" stroke="#10b981" stroke-width="1" opacity="0">
+        <animate attributeName="r" values="35;60;35" dur="2s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.8;0;0.8" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      
+      <text x="0" y="4" font-family="monospace" font-size="11" fill="#10b981" text-anchor="middle" font-weight="bold">D-01</text>
+      <text x="0" y="-50" font-family="system-ui, sans-serif" font-size="10" fill="#6ee7b7" text-anchor="middle">5 consumers</text>
+      <text x="0" y="-62" font-family="system-ui, sans-serif" font-size="9" fill="rgba(255,255,255,0.5)" text-anchor="middle">128 KB/s</text>
+    </g>
+    
+    <!-- DEVICE 2: IDLE - Critical - No consumers -->
+    <g transform="translate(320, -140)">
+      <!-- Dead connection - no flow -->
+      <path id="path2" d="M-320,140 Q-200,60 -30,15" fill="none" stroke="rgba(239,68,68,0.2)" stroke-width="3" stroke-dasharray="8 8"/>
+      
+      <!-- Warning pulse on line -->
+      <circle r="6" fill="#ef4444" opacity="0.6">
+        <animateMotion dur="3s" repeatCount="indefinite">
+          <mpath href="#path2"/>
+        </animateMotion>
+        <animate attributeName="opacity" values="0.6;0.2;0.6" dur="1s" repeatCount="indefinite"/>
+      </circle>
+      
+      <!-- Device node - pulsing warning -->
+      <circle r="35" fill="rgba(239,68,68,0.2)" stroke="#ef4444" stroke-width="3" filter="url(#glow-red)">
+        <animate attributeName="r" values="35;40;35" dur="1s" repeatCount="indefinite"/>
+        <animate attributeName="stroke-opacity" values="1;0.3;1" dur="1s" repeatCount="indefinite"/>
+      </circle>
+      <circle r="28" fill="rgba(15,16,41,0.9)"/>
+      
+      <!-- Warning indicator -->
+      <g transform="translate(25, -25)">
+        <circle r="12" fill="#ef4444">
+          <animate attributeName="opacity" values="1;0.4;1" dur="0.8s" repeatCount="indefinite"/>
+        </circle>
+        <text x="0" y="5" font-family="system-ui, sans-serif" font-size="14" fill="#ffffff" text-anchor="middle" font-weight="bold">!</text>
+      </g>
+      
+      <!-- Wasted energy indicator - electricity going nowhere -->
+      <g opacity="0.6">
+        <line x1="0" y1="-35" x2="0" y2="-55" stroke="#ef4444" stroke-width="2">
+          <animate attributeName="y2" values="-55;-65;-55" dur="1.5s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.8;0.3;0.8" dur="1.5s" repeatCount="indefinite"/>
+        </line>
+        <line x1="-10" y1="-35" x2="-15" y2="-50" stroke="#ef4444" stroke-width="1.5">
+          <animate attributeName="opacity" values="0.6;0.2;0.6" dur="1.2s" repeatCount="indefinite"/>
+        </line>
+        <line x1="10" y1="-35" x2="15" y2="-50" stroke="#ef4444" stroke-width="1.5">
+          <animate attributeName="opacity" values="0.6;0.2;0.6" dur="1.2s" repeatCount="indefinite" begin="0.3s"/>
+        </line>
+      </g>
+      
+      <text x="0" y="4" font-family="monospace" font-size="11" fill="#ef4444" text-anchor="middle" font-weight="bold">D-02</text>
+      <text x="0" y="-70" font-family="system-ui, sans-serif" font-size="10" fill="#fca5a5" text-anchor="middle">0 consumers</text>
+      <text x="0" y="-82" font-family="system-ui, sans-serif" font-size="9" fill="#ef4444" text-anchor="middle">WASTING 1.2 kWh</text>
+    </g>
+    
+    <!-- DEVICE 3: Active - Moderate flow -->
+    <g transform="translate(380, 80)">
+      <path id="path3" d="M-380,-80 Q-250,0 -35,10" fill="none" stroke="rgba(16,185,129,0.3)" stroke-width="3"/>
+      <path d="M-380,-80 Q-250,0 -35,10" fill="none" stroke="#10b981" stroke-width="2" stroke-dasharray="6 10" filter="url(#electric-glow)">
+        <animate attributeName="stroke-dashoffset" values="0;-32" dur="1s" repeatCount="indefinite"/>
+      </path>
+      
+      <!-- Data particles -->
+      <circle r="3" fill="#10b981">
+        <animateMotion dur="1.5s" repeatCount="indefinite">
+          <mpath href="#path3"/>
+        </animateMotion>
+      </circle>
+      <circle r="2" fill="#34d399">
+        <animateMotion dur="1.5s" repeatCount="indefinite" begin="0.5s">
+          <mpath href="#path3"/>
+        </animateMotion>
+      </circle>
+      
+      <circle r="30" fill="rgba(16,185,129,0.15)" stroke="#10b981" stroke-width="2">
+        <animate attributeName="r" values="30;32;30" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <circle r="24" fill="rgba(15,16,41,0.9)"/>
+      
+      <text x="0" y="4" font-family="monospace" font-size="10" fill="#10b981" text-anchor="middle" font-weight="bold">D-03</text>
+      <text x="0" y="-45" font-family="system-ui, sans-serif" font-size="9" fill="#6ee7b7" text-anchor="middle">3 consumers</text>
+    </g>
+    
+    <!-- DEVICE 4: Warning - Low usage -->
+    <g transform="translate(280, 240)">
+      <path id="path4" d="M-280,-240 Q-150,-120 -25,-18" fill="none" stroke="rgba(251,191,36,0.3)" stroke-width="3"/>
+      <path d="M-280,-240 Q-150,-120 -25,-18" fill="none" stroke="#fbbf24" stroke-width="2" stroke-dasharray="4 12">
+        <animate attributeName="stroke-dashoffset" values="0;-32" dur="2s" repeatCount="indefinite"/>
+      </path>
+      
+      <!-- Slow data particle -->
+      <circle r="3" fill="#fbbf24" filter="url(#glow-yellow)">
+        <animateMotion dur="3s" repeatCount="indefinite">
+          <mpath href="#path4"/>
+        </animateMotion>
+      </circle>
+      
+      <circle r="28" fill="rgba(251,191,36,0.15)" stroke="#fbbf24" stroke-width="2"/>
+      <circle r="22" fill="rgba(15,16,41,0.9)"/>
+      
+      <text x="0" y="4" font-family="monospace" font-size="10" fill="#fbbf24" text-anchor="middle" font-weight="bold">D-04</text>
+      <text x="0" y="-42" font-family="system-ui, sans-serif" font-size="9" fill="#fde68a" text-anchor="middle">1 consumer</text>
+    </g>
+    
+    <!-- DEVICE 5: IDLE - No consumers -->
+    <g transform="translate(-100, 280)">
+      <path id="path5" d="M100,-280 Q50,-150 12,-22" fill="none" stroke="rgba(239,68,68,0.2)" stroke-width="3" stroke-dasharray="6 6"/>
+      
+      <circle r="5" fill="#ef4444" opacity="0.5">
+        <animateMotion dur="4s" repeatCount="indefinite">
+          <mpath href="#path5"/>
+        </animateMotion>
+      </circle>
+      
+      <circle r="30" fill="rgba(239,68,68,0.15)" stroke="#ef4444" stroke-width="2">
+        <animate attributeName="stroke-opacity" values="1;0.4;1" dur="1.5s" repeatCount="indefinite"/>
+      </circle>
+      <circle r="24" fill="rgba(15,16,41,0.9)"/>
+      
+      <text x="0" y="4" font-family="monospace" font-size="10" fill="#ef4444" text-anchor="middle" font-weight="bold">D-05</text>
+      <text x="0" y="-45" font-family="system-ui, sans-serif" font-size="9" fill="#fca5a5" text-anchor="middle">0 consumers</text>
+    </g>
+    
+    <!-- DEVICE 6: Active - Heavy consumer -->
+    <g transform="translate(-350, 120)">
+      <path id="path6" d="M350,-120 Q200,0 45,-15" fill="none" stroke="rgba(16,185,129,0.3)" stroke-width="4"/>
+      <path d="M350,-120 Q200,0 45,-15" fill="none" stroke="#10b981" stroke-width="3" stroke-dasharray="10 8" filter="url(#electric-glow)">
+        <animate attributeName="stroke-dashoffset" values="0;-36" dur="0.6s" repeatCount="indefinite"/>
+      </path>
+      
+      <!-- Heavy data flow -->
+      <circle r="5" fill="#10b981" filter="url(#glow-green)">
+        <animateMotion dur="0.9s" repeatCount="indefinite">
+          <mpath href="#path6"/>
+        </animateMotion>
+      </circle>
+      <circle r="4" fill="#34d399">
+        <animateMotion dur="0.9s" repeatCount="indefinite" begin="0.2s">
+          <mpath href="#path6"/>
+        </animateMotion>
+      </circle>
+      <circle r="4" fill="#6ee7b7">
+        <animateMotion dur="0.9s" repeatCount="indefinite" begin="0.4s">
+          <mpath href="#path6"/>
+        </animateMotion>
+      </circle>
+      <circle r="3" fill="#a7f3d0">
+        <animateMotion dur="0.9s" repeatCount="indefinite" begin="0.6s">
+          <mpath href="#path6"/>
+        </animateMotion>
+      </circle>
+      
+      <circle r="38" fill="rgba(16,185,129,0.2)" stroke="#10b981" stroke-width="3" filter="url(#glow-green)">
+        <animate attributeName="r" values="38;42;38" dur="1.2s" repeatCount="indefinite"/>
+      </circle>
+      <circle r="30" fill="rgba(15,16,41,0.9)"/>
+      
+      <!-- Strong emission -->
+      <circle r="45" fill="none" stroke="#10b981" stroke-width="2" opacity="0">
+        <animate attributeName="r" values="38;70;38" dur="1.5s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.6;0;0.6" dur="1.5s" repeatCount="indefinite"/>
+      </circle>
+      
+      <text x="0" y="4" font-family="monospace" font-size="11" fill="#10b981" text-anchor="middle" font-weight="bold">D-06</text>
+      <text x="0" y="-55" font-family="system-ui, sans-serif" font-size="10" fill="#6ee7b7" text-anchor="middle">8 consumers</text>
+      <text x="0" y="-67" font-family="system-ui, sans-serif" font-size="9" fill="rgba(255,255,255,0.5)" text-anchor="middle">256 KB/s</text>
+    </g>
+    
+    <!-- DEVICE 7: IDLE -->
+    <g transform="translate(-320, -80)">
+      <path id="path7" d="M320,80 Q200,40 35,10" fill="none" stroke="rgba(239,68,68,0.2)" stroke-width="2" stroke-dasharray="5 5"/>
+      
+      <circle r="25" fill="rgba(239,68,68,0.1)" stroke="#ef4444" stroke-width="2">
+        <animate attributeName="stroke-opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <circle r="20" fill="rgba(15,16,41,0.9)"/>
+      
+      <text x="0" y="4" font-family="monospace" font-size="9" fill="#ef4444" text-anchor="middle">D-07</text>
+    </g>
+    
+    <!-- Additional smaller devices in outer ring -->
+    <!-- Active small devices -->
+    <g transform="translate(-200, -280)">
+      <circle r="15" fill="rgba(16,185,129,0.2)" stroke="#10b981" stroke-width="2">
+        <animate attributeName="opacity" values="1;0.6;1" dur="3s" repeatCount="indefinite"/>
+      </circle>
+      <line x1="200" y1="280" x2="15" y2="5" stroke="#10b981" stroke-width="1" opacity="0.4"/>
+    </g>
+    
+    <g transform="translate(50, -320)">
+      <circle r="12" fill="rgba(16,185,129,0.2)" stroke="#10b981" stroke-width="1.5"/>
+      <line x1="-50" y1="320" x2="-5" y2="10" stroke="#10b981" stroke-width="1" opacity="0.3"/>
+    </g>
+    
+    <!-- Idle small devices -->
+    <g transform="translate(180, -260)">
+      <circle r="12" fill="rgba(239,68,68,0.2)" stroke="#ef4444" stroke-width="1.5">
+        <animate attributeName="opacity" values="1;0.4;1" dur="2s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+    
+    <g transform="translate(-400, 0)">
+      <circle r="14" fill="rgba(239,68,68,0.2)" stroke="#ef4444" stroke-width="1.5"/>
+    </g>
+    
+    <g transform="translate(-280, 220)">
+      <circle r="10" fill="rgba(239,68,68,0.2)" stroke="#ef4444" stroke-width="1"/>
+    </g>
+    
+    <g transform="translate(420, -40)">
+      <circle r="11" fill="rgba(239,68,68,0.2)" stroke="#ef4444" stroke-width="1"/>
+    </g>
+    
+    <g transform="translate(350, 180)">
+      <circle r="13" fill="rgba(239,68,68,0.2)" stroke="#ef4444" stroke-width="1.5"/>
+    </g>
+    
+    <!-- Warning small devices -->
+    <g transform="translate(-150, 320)">
+      <circle r="12" fill="rgba(251,191,36,0.2)" stroke="#fbbf24" stroke-width="1.5"/>
+    </g>
+    
+    <g transform="translate(100, 300)">
+      <circle r="11" fill="rgba(251,191,36,0.2)" stroke="#fbbf24" stroke-width="1"/>
+    </g>
+  </g>
+  
+  <!-- Stats Panel - Bottom -->
+  <g transform="translate(20, 780)" filter="url(#glass)">
+    <rect x="0" y="0" width="1400" height="100" rx="16" fill="url(#card-gradient)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+    
+    <g transform="translate(30, 30)">
+      <text x="0" y="0" font-family="system-ui, sans-serif" font-size="12" fill="rgba(255,255,255,0.5)">ACTIVE DEVICES</text>
+      <text x="0" y="30" font-family="system-ui, sans-serif" font-size="28" font-weight="700" fill="#10b981">13</text>
+      <text x="50" y="30" font-family="system-ui, sans-serif" font-size="12" fill="rgba(255,255,255,0.6)">of 156</text>
+    </g>
+    
+    <g transform="translate(230, 30)">
+      <text x="0" y="0" font-family="system-ui, sans-serif" font-size="12" fill="rgba(255,255,255,0.5)">IDLE DEVICES</text>
+      <text x="0" y="30" font-family="system-ui, sans-serif" font-size="28" font-weight="700" fill="#ef4444">143</text>
+      <circle r="6" fill="#ef4444" cx="70" cy="22">
+        <animate attributeName="opacity" values="1;0.3;1" dur="1s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+    
+    <g transform="translate(430, 30)">
+      <text x="0" y="0" font-family="system-ui, sans-serif" font-size="12" fill="rgba(255,255,255,0.5)">TOTAL DATA FLOW</text>
+      <text x="0" y="30" font-family="system-ui, sans-serif" font-size="28" font-weight="700" fill="#6366f1">2.4</text>
+      <text x="55" y="30" font-family="system-ui, sans-serif" font-size="12" fill="rgba(255,255,255,0.6)">MB/s</text>
+    </g>
+    
+    <g transform="translate(630, 30)">
+      <text x="0" y="0" font-family="system-ui, sans-serif" font-size="12" fill="rgba(255,255,255,0.5)">ENERGY CONSUMPTION</text>
+      <text x="0" y="30" font-family="system-ui, sans-serif" font-size="28" font-weight="700" fill="#fbbf24">456</text>
+      <text x="70" y="30" font-family="system-ui, sans-serif" font-size="12" fill="rgba(255,255,255,0.6)">kWh/day</text>
+    </g>
+    
+    <g transform="translate(880, 30)">
+      <text x="0" y="0" font-family="system-ui, sans-serif" font-size="12" fill="rgba(255,255,255,0.5)">WASTED ENERGY</text>
+      <text x="0" y="30" font-family="system-ui, sans-serif" font-size="28" font-weight="700" fill="#ef4444">412</text>
+      <text x="65" y="30" font-family="system-ui, sans-serif" font-size="12" fill="#fca5a5">kWh/day</text>
+    </g>
+    
+    <g transform="translate(1130, 30)">
+      <text x="0" y="0" font-family="system-ui, sans-serif" font-size="12" fill="rgba(255,255,255,0.5)">POTENTIAL SAVINGS</text>
+      <text x="0" y="30" font-family="system-ui, sans-serif" font-size="28" font-weight="700" fill="#10b981">$8.2K</text>
+      <text x="90" y="30" font-family="system-ui, sans-serif" font-size="12" fill="#6ee7b7">/month</text>
+    </g>
+  </g>
+  
+  <!-- Legend -->
+  <g transform="translate(50, 100)" filter="url(#glass)">
+    <rect x="0" y="0" width="280" height="140" rx="12" fill="url(#card-gradient)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+    <text x="20" y="30" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#ffffff">Device Status Legend</text>
+    
+    <g transform="translate(20, 50)">
+      <circle r="8" fill="#10b981" filter="url(#glow-green)"/>
+      <text x="20" y="5" font-family="system-ui, sans-serif" font-size="11" fill="rgba(255,255,255,0.8)">Active - Has consumers</text>
+    </g>
+    
+    <g transform="translate(20, 80)">
+      <circle r="8" fill="#fbbf24"/>
+      <text x="20" y="5" font-family="system-ui, sans-serif" font-size="11" fill="rgba(255,255,255,0.8)">Warning - Low utilization</text>
+    </g>
+    
+    <g transform="translate(20, 110)">
+      <circle r="8" fill="#ef4444">
+        <animate attributeName="opacity" values="1;0.4;1" dur="1s" repeatCount="indefinite"/>
+      </circle>
+      <text x="20" y="5" font-family="system-ui, sans-serif" font-size="11" fill="rgba(255,255,255,0.8)">Idle - No consumers (wasting energy)</text>
+    </g>
+  </g>
+  
+  <!-- Data Flow Indicators -->
+  <g transform="translate(50, 260)" filter="url(#glass)">
+    <rect x="0" y="0" width="280" height="120" rx="12" fill="url(#card-gradient)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+    <text x="20" y="30" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#ffffff">Data Flow Indicators</text>
+    
+    <g transform="translate(20, 55)">
+      <line x1="0" y1="0" x2="60" y2="0" stroke="#10b981" stroke-width="3" stroke-dasharray="8 8">
+        <animate attributeName="stroke-dashoffset" values="0;-32" dur="1s" repeatCount="indefinite"/>
+      </line>
+      <text x="75" y="5" font-family="system-ui, sans-serif" font-size="10" fill="rgba(255,255,255,0.7)">Heavy data flow</text>
+    </g>
+    
+    <g transform="translate(20, 85)">
+      <line x1="0" y1="0" x2="60" y2="0" stroke="#fbbf24" stroke-width="2" stroke-dasharray="4 12">
+        <animate attributeName="stroke-dashoffset" values="0;-32" dur="2s" repeatCount="indefinite"/>
+      </line>
+      <text x="75" y="5" font-family="system-ui, sans-serif" font-size="10" fill="rgba(255,255,255,0.7)">Light data flow</text>
+    </g>
+    
+    <g transform="translate(20, 115)">
+      <line x1="0" y1="0" x2="60" y2="0" stroke="#ef4444" stroke-width="2" stroke-dasharray="6 6" opacity="0.4"/>
+      <text x="75" y="5" font-family="system-ui, sans-serif" font-size="10" fill="rgba(255,255,255,0.7)">No data consumers</text>
+    </g>
+  </g>
+  
+  <!-- AI Insight Panel -->
+  <g transform="translate(1110, 100)" filter="url(#glass)">
+    <rect x="0" y="0" width="310" height="200" rx="16" fill="rgba(239,68,68,0.1)" stroke="rgba(239,68,68,0.4)" stroke-width="2"/>
+    <rect x="0" y="0" width="310" height="45" rx="16" fill="rgba(239,68,68,0.2)"/>
+    <text x="20" y="28" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#fca5a5">AI CRITICAL ALERT</text>
+    
+    <text x="20" y="75" font-family="system-ui, sans-serif" font-size="13" font-weight="500" fill="#ffffff">143 devices running with</text>
+    <text x="20" y="95" font-family="system-ui, sans-serif" font-size="13" font-weight="500" fill="#ffffff">ZERO data consumers</text>
+    
+    <text x="20" y="125" font-family="system-ui, sans-serif" font-size="11" fill="rgba(255,255,255,0.7)">These devices are consuming power</text>
+    <text x="20" y="140" font-family="system-ui, sans-serif" font-size="11" fill="rgba(255,255,255,0.7)">and emitting data that nobody uses.</text>
+    
+    <rect x="20" y="160" width="130" height="28" rx="6" fill="rgba(239,68,68,0.3)" stroke="#ef4444" stroke-width="1"/>
+    <text x="85" y="178" font-family="system-ui, sans-serif" font-size="11" fill="#fca5a5" text-anchor="middle">Power Down All</text>
+    
+    <rect x="160" y="160" width="130" height="28" rx="6" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+    <text x="225" y="178" font-family="system-ui, sans-serif" font-size="11" fill="rgba(255,255,255,0.8)" text-anchor="middle">Schedule Review</text>
+  </g>
+  
+  <!-- Animated energy waste visualization -->
+  <g transform="translate(1265, 400)">
+    <text x="0" y="0" font-family="system-ui, sans-serif" font-size="12" fill="rgba(255,255,255,0.5)" text-anchor="middle">Energy Waste</text>
+    
+    <!-- Rising energy particles (wasted) -->
+    <g>
+      <circle r="3" fill="#ef4444" opacity="0.8">
+        <animate attributeName="cy" values="20;-100" dur="3s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.8;0" dur="3s" repeatCount="indefinite"/>
+      </circle>
+      <circle r="2" fill="#f87171" opacity="0.6">
+        <animate attributeName="cy" values="20;-100" dur="3s" repeatCount="indefinite" begin="0.5s"/>
+        <animate attributeName="opacity" values="0.6;0" dur="3s" repeatCount="indefinite" begin="0.5s"/>
+      </circle>
+      <circle r="2" fill="#fca5a5" opacity="0.5">
+        <animate attributeName="cy" values="20;-100" dur="3s" repeatCount="indefinite" begin="1s"/>
+        <animate attributeName="opacity" values="0.5;0" dur="3s" repeatCount="indefinite" begin="1s"/>
+      </circle>
+      <circle r="3" fill="#ef4444" opacity="0.7">
+        <animate attributeName="cy" values="20;-100" dur="3s" repeatCount="indefinite" begin="1.5s"/>
+        <animate attributeName="opacity" values="0.7;0" dur="3s" repeatCount="indefinite" begin="1.5s"/>
+      </circle>
+      <circle r="2" fill="#f87171" opacity="0.6">
+        <animate attributeName="cy" values="20;-100" dur="3s" repeatCount="indefinite" begin="2s"/>
+        <animate attributeName="opacity" values="0.6;0" dur="3s" repeatCount="indefinite" begin="2s"/>
+      </circle>
+      <circle r="2" fill="#fca5a5" opacity="0.5">
+        <animate attributeName="cy" values="20;-100" dur="3s" repeatCount="indefinite" begin="2.5s"/>
+        <animate attributeName="opacity" values="0.5;0" dur="3s" repeatCount="indefinite" begin="2.5s"/>
+      </circle>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,57 @@
+{
+  "TB001": {
+    "good": [
+      { "id": "01", "status": "good", "consumers": 3, "runtime": "2847", "energyConsumed": "0.8", "dataRate": "42" },
+      { "id": "05", "status": "good", "consumers": 5, "runtime": "3201", "energyConsumed": "1.1", "dataRate": "58" },
+      { "id": "08", "status": "good", "consumers": 4, "runtime": "2654", "energyConsumed": "0.9", "dataRate": "45" },
+      { "id": "12", "status": "good", "consumers": 6, "runtime": "3458", "energyConsumed": "1.3", "dataRate": "62" }
+    ],
+    "critical": [
+      { "id": "02", "status": "critical", "consumers": 0, "runtime": "2847", "energyConsumed": "1.2", "dataRate": "45" },
+      { "id": "04", "status": "critical", "consumers": 0, "runtime": "1956", "energyConsumed": "0.7", "dataRate": "28" },
+      { "id": "06", "status": "critical", "consumers": 0, "runtime": "3124", "energyConsumed": "1.5", "dataRate": "52" },
+      { "id": "09", "status": "critical", "consumers": 1, "runtime": "2234", "energyConsumed": "0.6", "dataRate": "35" }
+    ],
+    "dead": [
+      { "id": "07", "status": "dead", "consumers": 0, "runtime": "0", "energyConsumed": "0.0", "dataRate": "0" },
+      { "id": "11", "status": "dead", "consumers": 0, "runtime": "0", "energyConsumed": "0.0", "dataRate": "0" }
+    ]
+  },
+  "TB002": {
+    "good": [
+      { "id": "01", "status": "good", "consumers": 4, "runtime": "3102", "energyConsumed": "0.9", "dataRate": "48" },
+      { "id": "03", "status": "good", "consumers": 3, "runtime": "2758", "energyConsumed": "0.7", "dataRate": "40" },
+      { "id": "05", "status": "good", "consumers": 5, "runtime": "3456", "energyConsumed": "1.2", "dataRate": "55" },
+      { "id": "07", "status": "good", "consumers": 4, "runtime": "2901", "energyConsumed": "1.0", "dataRate": "47" },
+      { "id": "09", "status": "good", "consumers": 6, "runtime": "3289", "energyConsumed": "1.3", "dataRate": "60" }
+    ],
+    "critical": [
+      { "id": "02", "status": "critical", "consumers": 0, "runtime": "2456", "energyConsumed": "0.8", "dataRate": "32" },
+      { "id": "06", "status": "critical", "consumers": 1, "runtime": "2102", "energyConsumed": "0.5", "dataRate": "25" },
+      { "id": "10", "status": "critical", "consumers": 0, "runtime": "2890", "energyConsumed": "1.1", "dataRate": "43" }
+    ],
+    "dead": [
+      { "id": "04", "status": "dead", "consumers": 0, "runtime": "0", "energyConsumed": "0.0", "dataRate": "0" },
+      { "id": "08", "status": "dead", "consumers": 0, "runtime": "0", "energyConsumed": "0.0", "dataRate": "0" }
+    ]
+  },
+  "TB003": {
+    "good": [
+      { "id": "01", "status": "good", "consumers": 5, "runtime": "3589", "energyConsumed": "1.4", "dataRate": "65" },
+      { "id": "04", "status": "good", "consumers": 4, "runtime": "2987", "energyConsumed": "1.0", "dataRate": "50" },
+      { "id": "07", "status": "good", "consumers": 3, "runtime": "2678", "energyConsumed": "0.8", "dataRate": "42" },
+      { "id": "10", "status": "good", "consumers": 6, "runtime": "3401", "energyConsumed": "1.5", "dataRate": "68" }
+    ],
+    "critical": [
+      { "id": "02", "status": "critical", "consumers": 0, "runtime": "2567", "energyConsumed": "0.9", "dataRate": "38" },
+      { "id": "05", "status": "critical", "consumers": 0, "runtime": "3012", "energyConsumed": "1.2", "dataRate": "48" },
+      { "id": "08", "status": "critical", "consumers": 1, "runtime": "2234", "energyConsumed": "0.7", "dataRate": "30" },
+      { "id": "11", "status": "critical", "consumers": 0, "runtime": "2890", "energyConsumed": "1.0", "dataRate": "40" }
+    ],
+    "dead": [
+      { "id": "03", "status": "dead", "consumers": 0, "runtime": "0", "energyConsumed": "0.0", "dataRate": "0" },
+      { "id": "06", "status": "dead", "consumers": 0, "runtime": "0", "energyConsumed": "0.0", "dataRate": "0" },
+      { "id": "09", "status": "dead", "consumers": 0, "runtime": "0", "energyConsumed": "0.0", "dataRate": "0" }
+    ]
+  }
+}
